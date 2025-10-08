@@ -4,6 +4,7 @@ import { calculateElbow } from "calculate-elbow"
 import { generateElbowVariants } from "lib/solvers/SchematicTraceLinesSolver/SchematicTraceSingleLineSolver/generateElbowVariants"
 import type { InputChip, InputProblem } from "lib/types/InputProblem"
 import type { Guideline } from "lib/solvers/GuidelinesSolver/GuidelinesSolver"
+import "tests/fixtures/matcher"
 
 const pathLength = (pts: { x: number; y: number }[]) => {
   let len = 0
@@ -15,7 +16,7 @@ const pathLength = (pts: { x: number; y: number }[]) => {
   return len
 }
 
-test("SchematicTraceSingleLineSolver chooses shortest candidate path", () => {
+test("SchematicTraceSingleLineSolver chooses shortest candidate path", async () => {
   const chipA: InputChip = {
     chipId: "A",
     center: { x: 0, y: 0 },
@@ -36,10 +37,7 @@ test("SchematicTraceSingleLineSolver chooses shortest candidate path", () => {
     { pinId: "B1", x: 4, y: 2, _facingDirection: "x+" as const, chipId: "B" },
   ]
 
-  const guidelines: Guideline[] = [
-    { orientation: "vertical", x: 4, y: undefined },
-    { orientation: "vertical", x: 6, y: undefined },
-  ]
+  const guidelines: Guideline[] = []
 
   const inputProblem: InputProblem = {
     chips: [chipA, chipB],
@@ -63,9 +61,11 @@ test("SchematicTraceSingleLineSolver chooses shortest candidate path", () => {
     { x: pins[1].x, y: pins[1].y, facingDirection: pins[1]._facingDirection },
     { overshoot: 0.2 },
   )
-  const { elbowVariants } = generateElbowVariants({ baseElbow, guidelines })
-  const candidates = [baseElbow, ...elbowVariants]
-  const shortestLength = Math.min(...candidates.map(pathLength))
 
-  expect(pathLength(solver.solvedTracePath!)).toBe(shortestLength)
+  expect(solver.solvedTracePath).toEqual(baseElbow)
+
+  await expect(solver).toMatchSolverSnapshot(
+    import.meta.path,
+    "shortest_path",
+  )
 })
