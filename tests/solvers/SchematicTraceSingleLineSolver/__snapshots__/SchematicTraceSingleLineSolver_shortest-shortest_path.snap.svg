@@ -2,20 +2,20 @@
   <rect width="100%" height="100%" fill="white" />
   <g>
     <circle data-type="point" data-label="A1
-y+" data-x="0" data-y="0" cx="53.33333333333337" cy="453.33333333333337" r="3" fill="hsl(264, 100%, 50%, 0.8)" />
+y+" data-x="0" data-y="0" cx="53.02325581395348" cy="450.2325581395349" r="3" fill="hsl(264, 100%, 50%, 0.8)" />
   </g>
   <g>
     <circle data-type="point" data-label="B1
-x+" data-x="4" data-y="2" cx="586.6666666666667" cy="186.66666666666669" r="3" fill="hsl(295, 100%, 50%, 0.8)" />
+x+" data-x="4" data-y="2" cx="573.953488372093" cy="189.7674418604651" r="3" fill="hsl(295, 100%, 50%, 0.8)" />
   </g>
   <g>
-    <polyline data-points="0,0 0.2,0 2,0 2,2 3.8,2 4,2" data-type="line" data-label="" points="53.33333333333337,453.33333333333337 80.00000000000004,453.33333333333337 320.00000000000006,453.33333333333337 320.00000000000006,186.66666666666669 560,186.66666666666669 586.6666666666667,186.66666666666669" fill="none" stroke="green" stroke-width="1" />
+    <polyline data-points="0,0 4.2,0 4.2,2 4,2" data-type="line" data-label="" points="53.02325581395348,450.2325581395349 600,450.2325581395349 600,189.7674418604651 573.953488372093,189.7674418604651" fill="none" stroke="green" stroke-width="1" />
   </g>
   <g>
-    <rect data-type="rect" data-label="A" data-x="0" data-y="0" x="40.000000000000036" y="440.00000000000006" width="26.66666666666668" height="26.66666666666663" fill="hsl(65, 100%, 50%, 0.1)" stroke="black" stroke-width="0.0075" />
+    <rect data-type="rect" data-label="A" data-x="0" data-y="0" x="39.99999999999999" y="437.2093023255814" width="26.046511627906973" height="26.046511627906966" fill="hsl(65, 100%, 50%, 0.1)" stroke="black" stroke-width="0.007678571428571429" />
   </g>
   <g>
-    <rect data-type="rect" data-label="B" data-x="4" data-y="2" x="573.3333333333334" y="173.33333333333331" width="26.66666666666663" height="26.666666666666714" fill="hsl(66, 100%, 50%, 0.1)" stroke="black" stroke-width="0.0075" />
+    <rect data-type="rect" data-label="B" data-x="4" data-y="2" x="560.9302325581396" y="176.74418604651163" width="26.046511627906966" height="26.046511627906995" fill="hsl(66, 100%, 50%, 0.1)" stroke="black" stroke-width="0.007678571428571429" />
   </g>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />
@@ -45,12 +45,12 @@ x+" data-x="4" data-y="2" cx="586.6666666666667" cy="186.66666666666669" r="3" f
 
       // Calculate real coordinates using inverse transformation
       const matrix = {
-        "a": 133.33333333333334,
+        "a": 130.2325581395349,
         "c": 0,
-        "e": 53.33333333333337,
+        "e": 53.02325581395348,
         "b": 0,
-        "d": -133.33333333333334,
-        "f": 453.33333333333337
+        "d": -130.2325581395349,
+        "f": 450.2325581395349
       };
       // Manually invert and apply the affine transform
       // Since we only use translate and scale, we can directly compute:
